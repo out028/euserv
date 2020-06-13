@@ -397,7 +397,6 @@ cat > /etc/v2ray/config.json<<-EOF
 }
 EOF
 
-
 systemctl daemon-reload
 systemctl stop v2ray
 systemctl enable v2ray
@@ -406,14 +405,29 @@ systemctl start v2ray
 
 #nginx配置文件
 NGINX_CONFIG(){
+case $ID in
+  arch|manjaro)
+  nginx_config="/etc/nginx/sites-available/default"
+  ;;
+  ubuntu|debian|deepin)
+  nginx_config="/etc/nginx/sites-available/default"
+  ;;
+  centos|fedora|rhel)
+  nginx_config="/etc/nginx/conf.d/default.conf"
+  ;;
+  *)
+  exit
+  ;;
+esac
+
 nginx_name=$(cat /root/v2ray/v2ray.ini|grep dname |cut -f2 -d "=")
 nginx_name_ecc=$(cat /root/v2ray/v2ray.ini|grep name_ecc |cut -f2 -d "=")
 nginx_path=$(cat /root/v2ray/v2ray.ini|grep path |cut -f2 -d "=")
 
 mkdir -p /root/wwwroot/html
 chmod 777 /root/wwwroot/html
-mv /etc/nginx/sites-available/default /etc/nginx/sites-available/default.bak
-cat > /etc/nginx/sites-available/default <<-EOF
+
+cat > $nginx_config <<-EOF
 server {
     listen 80;
     listen [::]:80;
