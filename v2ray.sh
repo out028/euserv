@@ -396,8 +396,7 @@ cat > /etc/v2ray/config.json<<-EOF
     }
 }
 EOF
-#sed -i 's/\("id":\).*/\1 "'"${uuid}"'",/g' /etc/v2ray/config.json
-#sed -i 's/\("path":\).*/\1 "\/'"${path}"'\/"/g' /etc/v2ray/config.json
+
 
 systemctl daemon-reload
 systemctl stop v2ray
@@ -584,10 +583,7 @@ cat >/root/v2ray/config.json<<-EOF
     }
 }
 EOF
-#sed -i 's/\("address":\).*/\1 "'"${name}"'",/g' /root/config.json
-#sed -i 's/\("serverName":\).*/\1 "'"${name}"'"/g' /root/config.json
-#sed -i 's/\("id":\).*/\1 "'"${cuuid}"'",/g' /root/config.json
-#sed -i 's/\("path":\).*/\1 "\/'"${cpath}"'\/"/g' /root/config.json
+
 echo "cat /root/v2ray/config.json即可查看配置文件"
 }
 
