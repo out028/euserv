@@ -493,7 +493,7 @@ sed -i 's/^user.*/user root;/g' /etc/nginx/nginx.conf
 wget -O /root/wwwroot/html/html.tar.gz http://www.zsxwz.com/deepin/html.tar.gz
 cd /root/wwwroot/html
 tar zxvf html.tar.gz
-rm html.tar.gz
+rm -rf html.tar.gz
 cd /root
 
 systemctl daemon-reload
