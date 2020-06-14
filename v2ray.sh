@@ -170,12 +170,12 @@ echo "session required pam_limits.so" >>/etc/pam.d/common-session
 case $ID in
   arch|manjaro)
   if ! [ -x "$(command -v lsb-release)"  ] ; then
-  sudo pacman -S lsb-release --noconfirm
+ pacman -S lsb-release --noconfirm
   fi
   ;;
   debian|ubuntu|devuan)
   if ! [ -x "$(command -v lsb-release)"  ] ; then
-  sudo apt-get install lsb-release
+   apt-get install lsb-release
   fi
   ;;
   centos|fedora|rhel)
@@ -184,7 +184,7 @@ case $ID in
   yumdnf="dnf"
   fi
   if ! [ -x "$(command -v redhat-lsb-core)"  ] ; then
-  sudo $yumdnf install -y redhat-lsb-core
+   $yumdnf install -y redhat-lsb-core
   fi
   ;;
   *)
@@ -199,7 +199,7 @@ TIME_UPDATE(){
 case $ID in
   arch|manjaro)
   if ! [ -x "$(command -v ntpdate)"  ] ; then
-  sudo pacman -S ntpdate --noconfirm
+   pacman -S ntpdate --noconfirm
   rm -rf /etc/localtime
   ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
   hwclock --systohc --utc
@@ -207,7 +207,7 @@ case $ID in
   ;;
   ubuntu|debian|deepin)
   if ! [ -x "$(command -v ntpdate)"  ] ; then
-  sudo apt install ntpdate -y
+   apt install ntpdate -y
   rm -rf /etc/localtime
   ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
   ntpdate us.pool.ntp.org
@@ -219,7 +219,7 @@ case $ID in
   yumdnf="dnf"
   fi
   if ! [ -x "$(command -v chrony)"  ] ; then
-  sudo $yumdnf install chrony -y
+   $yumdnf install chrony -y
   fi
   timedatectl set-ntp true
   systemctl enable chronyd && systemctl restart chronyd
@@ -237,12 +237,12 @@ DOMAIN_KEY(){
 case $ID in
   arch|manjaro)
   if ! [ -x "$(command -v socat)"  ] ; then
-  sudo pacman -S socat --noconfirm
+   pacman -S socat --noconfirm
   fi
   ;;
   ubuntu|debian|deepin)
   if ! [ -x "$(command -v socat)"  ] ; then
-  sudo apt install socat -y
+   apt install socat -y
   fi
   ;;
   centos|fedora|rhel)
@@ -251,7 +251,7 @@ case $ID in
   yumdnf="dnf"
   fi
   if ! [ -x "$(command -v socat)"  ] ; then
-  sudo $yumdnf install socat -y
+   $yumdnf install socat -y
   fi
   ;;
   *)
@@ -277,12 +277,12 @@ NGINX_INSTALL(){
 case $ID in
   arch|manjaro)
   if ! [ -x "$(command -v nginx)"  ] ; then
-  sudo pacman -S nginx --noconfirm
+   pacman -S nginx --noconfirm
   fi
   ;;
   ubuntu|debian|deepin)
   if ! [ -x "$(command -v nginx)"  ] ; then
-  sudo apt install nginx -y
+   apt install nginx -y
   fi
   ;;
   centos|fedora|rhel)
@@ -291,8 +291,8 @@ case $ID in
   yumdnf="dnf"
   fi
   if ! [ -x "$(command -v nginx)"  ] ; then
-  sudo rpm -ivh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm
-  sudo $yumdnf install nginx -y
+   rpm -ivh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm
+   $yumdnf install nginx -y
   fi
   ;;
   *)
