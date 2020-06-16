@@ -179,6 +179,7 @@ case $ID in
   fi
   ;;
   centos|fedora|rhel)
+  yum install bc
   yumdnf="yum"
   if test "$(echo "$VERSION_ID >= 22" | bc)" -ne 0; then
   yumdnf="dnf"
