@@ -192,6 +192,32 @@ case $ID in
   exit
   ;;
 esac
+
+case $ID in
+  arch|manjaro)
+  if ! [ -x "$(command -v curl)"  ] ; then
+   pacman -S curl --noconfirm
+  fi
+  ;;
+  ubuntu|debian|deepin)
+  if ! [ -x "$(command -v curl)"  ] ; then
+   apt install curl -y
+  fi
+  ;;
+  centos|fedora|rhel)
+  yumdnf="yum"
+  if test "$(echo "$VERSION_ID >= 22" | bc)" -ne 0; then
+  yumdnf="dnf"
+  fi
+  if ! [ -x "$(command -v curl)"  ] ; then
+   $yumdnf install curl -y
+  fi
+  ;;
+  *)
+  exit
+  ;;
+esac
+
 }
 
 #时间同步
