@@ -95,7 +95,7 @@ case $ID in
   exit
   ;;
 esac
-}
+
 
 mkdir -p /root/v2ray
 read -p "请输入域名:" name
