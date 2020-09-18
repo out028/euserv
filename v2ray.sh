@@ -333,14 +333,14 @@ esac
 V2RAY_INSTALLl(){
 if ! [ -d "$HOME/v2ray/zsxwz" ] ; then
 mkdir -p /root/v2ray/zsxwz
-cd /root/v2ray/zsxwz
-wget https://install.direct/go.sh
+cd /root/v2ray/zsxwz  ||exit
+wget -O go.sh https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh
 bash go.sh
-cd /root
+cd /root  ||exit
 else
-cd /root/v2ray/zsxwz
+cd /root/v2ray/zsxwz  ||exit
 bash go.sh
-cd /root
+cd /root  ||exit
 exit 0
 fi
 }
@@ -349,7 +349,7 @@ fi
 V2RAY_CONFIG(){
 v2ray_uuid=$(cat /root/v2ray/v2ray.ini|grep uuid |cut -f2 -d "=")
 v2ray_path=$(cat /root/v2ray/v2ray.ini|grep path |cut -f2 -d "=")
-cat > /etc/v2ray/config.json<<-EOF
+cat > /usr/local/etc/v2ray/config.json <<-EOF
 {
     "log": {
         "access": "/var/log/v2ray/access.log",
