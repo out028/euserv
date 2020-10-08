@@ -4,12 +4,12 @@ read -p "请输入app名称：" name
 
 read -p "请输入uuid：" UUID
 
-wget https://github.com/zsxwz/v2ray/raw/master/start
+read -p "请输入伪装路径path：" path
 
 mkdir ibm
 chmod -v 0755 ibm
 cd ibm
-
+wget https://github.com/zsxwz/v2ray/raw/master/start
 cat > manifest.yml <<-"EOF"
 applications:
         - name: ${name}
@@ -62,7 +62,7 @@ base64 <<< "{
               "streamSettings": {
                 "network":"ws",
                 "wsSettings": {
-                  "path": "/zs123"
+                  "path": "$path"
                 }
               }
             }
