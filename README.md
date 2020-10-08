@@ -31,6 +31,9 @@ ibmcloud login
 ibmcloud cf install
 ibmcloud target --cf
 
+# push
+ibmcloud cf push
+
 #ssh登录，使用你自己的app名称。
 ibmcloud cf ssh appname
 ```
