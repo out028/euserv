@@ -14,7 +14,7 @@ ibmcloud cli的使用可以参考：
 cat /proc/sys/kernel/random/uuid
 
 # 下载运行脚本
-wget https://github.com/zsxwz/v2ray/raw/master/ibm && chmod +x ibm &&./ibm
+wget https://github.com/zsxwz/v2ray/raw/master/ibmcloud && chmod +x ibmcloud &&./ibmcloud
 
 ```
 
