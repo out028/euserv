@@ -10,15 +10,15 @@ mkdir ibm
 chmod -v 0755 ibm
 cd ibm
 wget https://github.com/zsxwz/v2ray/raw/master/start
-cat > manifest.yml <<-"EOF"
-applications:
+
+echo " applications:
         - name: ${name}
           instances: 1
           memory: 256M
           random-route: true
           buildpacks:
-                  - binary_buildpack
-EOF
+                  - binary_buildpack" > manifest.yml
+
 chmod 0755 manifest.yml
 
 cat > server.py <<-EOF
@@ -62,7 +62,7 @@ base64 <<< "{
               "streamSettings": {
                 "network":"ws",
                 "wsSettings": {
-                  "path": "$path"
+                  "path": "/$path"
                 }
               }
             }
