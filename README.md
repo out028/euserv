@@ -13,10 +13,14 @@ ibmcloud cli的使用可以参考：
 #生成一个uuid
 cat /proc/sys/kernel/random/uuid
 
-# 下载运行脚本
+# vmess协议版本下载运行脚本
 wget https://github.com/zsxwz/v2ray/raw/master/ibmcloud && chmod +x ibmcloud &&./ibmcloud
 
+# vmess/vless自选版本，vless部分客户端可能无法使用，性能稍有提升。
+https://github.com/zsxwz/v2ray/raw/master/ibm-vless && chmod +x ibm-vless && ./ibm-vless
+
 ```
+
 
 push：
 
