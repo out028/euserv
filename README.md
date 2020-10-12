@@ -1,5 +1,8 @@
 # v2ray
 简单的v2ray+ws+tls+nginx一键脚本
+```
+wget https://github.com/zsxwz/v2ray/blob/master/v2ray.sh && chmod +x v2ray.sh && ./v2ray.sh
+```
 
 
 # ibm脚本使用：
