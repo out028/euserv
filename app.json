@@ -8,10 +8,6 @@
     "UUID": {
       "description": "VLESS UUID",
       "value": "f16e9afc-63e8-4d83-8939-acd339a03ca1"
-    },
-    "PATH":{
-    "description": "VLESS PATH",
-    "value": "zsxwz"
     }
   },
   "website": "https://github.com/zsxwz/v2ray",
