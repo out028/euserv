@@ -1,0 +1,14 @@
+{
+    "name": "vless",
+    "description": "Deploy vless on Heroku.",
+    "keywords": ["V2Ray"],
+    "env": {
+        "UUID": {
+            "description": "V2Ray UUID",
+            "value": "83a8744c-ff16-488d-8dff-1c54d04ceeaf"
+        }
+    },
+    "website": "https://github.com/zsxwz/v2ray",
+    "repository": "https://github.com/zsxwz/v2ray",
+    "stack": "container"
+}
