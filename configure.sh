@@ -21,13 +21,14 @@ cat << EOF > /usr/local/etc/v2ray/config.json
   },
   "inbounds": [
     {
-      "port": "$PORT",
+      "port": $PORT,
       "tag": "VLESS-in",
-      "protocol": "vless",
+      "protocol": "VLESS",
       "settings": {
         "clients": [
           {
-          "id": "$UUID"
+            "id": "$UUID",
+            "alterId": 0
           }
         ],
         "decryption": "none"
@@ -51,7 +52,29 @@ cat << EOF > /usr/local/etc/v2ray/config.json
       "settings": {},
       "tag": "blocked"
     }
-  ]
+  ],
+  "dns": {
+    "servers": [
+      "https+local://1.1.1.1/dns-query",
+      "1.1.1.1",
+      "1.0.0.1",
+      "8.8.8.8",
+      "8.8.4.4",
+      "localhost"
+    ]
+  },
+  "routing": {
+    "domainStrategy": "AsIs",
+    "rules": [
+      {
+        "type": "field",
+        "inboundTag": [
+          "VLESS-in"
+        ],
+        "outboundTag": "direct"
+      }
+    ]
+  }
 }
 EOF
 
