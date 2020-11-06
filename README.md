@@ -28,17 +28,21 @@ push：
 
 ```
 # 进入ibm文件夹
-cd ibm # 配置文件都在这个目录，只有进入到这个目录才能正常部署。可以ls，看看是否有配置文件。
+cd ibm 
+# 配置文件都在这个目录，只有进入到这个目录才能正常部署。可以ls，看看是否有配置文件。
 
 # 登录自己的帐号
 ibmcloud login
 
 # 安装Cloud Foundry
-ibmcloud cf install # 这一步现在可以不要
-ibmcloud target --cf # 这一步多试几次，返回你的账号数据则表示正常
+ibmcloud cf install 
+# 如果使用ibm网站的shell，这一步现在可以不要，如果是自己下载cli使用的卡娜还是要的。
+ibmcloud target --cf 
+# 这一步多试几次，返回你的账号数据则表示正常
 
 # push
-ibmcloud cf push # 出现各种错误先看看，自己配置有没有写对，写path的时候，最好不要加什么特殊符号，如/ $ #等等。
+ibmcloud cf push 
+# 出现各种错误先看看，自己配置有没有写对，写path的时候，最好不要加什么特殊符号，如/ $ #等等。
 
 #ssh登录，使用你自己的app名称。
 ibmcloud cf ssh appname # 也可以从资源面板，运行时，ssh进入
