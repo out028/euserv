@@ -37,6 +37,7 @@ ibmcloud login
 # 安装Cloud Foundry
 ibmcloud cf install 
 # 如果使用ibm网站的shell，这一步现在可以不要，如果是自己下载cli使用的卡娜还是要的。
+
 ibmcloud target --cf 
 # 这一步多试几次，返回你的账号数据则表示正常
 
