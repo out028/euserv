@@ -1,0 +1,88 @@
+{
+  "stats": {},
+  "log": {
+    "loglevel": "warning"
+  },
+  "inbounds": [
+    {
+      "port": 8012,
+      "tag": "tcp",
+      "sniffing": {
+        "enabled": true,
+        "destOverride": [
+          "http",
+          "tls"
+        ]
+      },
+      "listen": "0.0.0.0",
+      "protocol": "vless",
+      "settings": {
+        "clients": [
+          {
+            "id": "07059955-78e9-4dc5-8551-4885f0e23282",
+            "level": 0
+          }
+        ],
+        "decryption": "none"
+      },
+      "streamSettings": {
+        "network": "gun",
+        "grpcSettings": {
+          "serviceName": "zs121xwz"
+        }
+      }
+    },
+    {
+      "listen": "0.0.0.0",
+      "port": 8013,
+      "protocol": "vmess",
+      "settings": {
+        "clients": [
+          {
+            "id": "07059955-78e9-4dc5-8551-4885f0e23282",
+            "alterId": 64
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "wsSettings": {
+          "path": "/zs122xwz"
+        }
+      }
+    },
+    {
+      "port": 8014,
+      "listen": "0.0.0.0",
+      "protocol": "vless",
+      "settings": {
+        "clients": [
+          {
+            "id": "07059955-78e9-4dc5-8551-4885f0e23282",
+            "level": 0
+          }
+        ],
+        "decryption": "none"
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "none",
+        "wsSettings": {
+          "path": "/zs123xwz"
+        }
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "freedom",
+      "settings": {
+        "domainStrategy": "UseIP"
+      }
+    },
+    {
+      "tag": "block",
+      "protocol": "blackhole"
+    }
+  ]
+}
